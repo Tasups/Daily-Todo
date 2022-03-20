@@ -1,10 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+
+import TodoList from 'TodoList.js';
+import TodoInput from './TodoInput';
+
 
 function App() {
   return (
     <div className="App">
-      <h1>IS THIS WHOLE THING ACTUALLY UNTRACKED?</h1>
+      <TodoInput />
+      <TodoList />
     </div>
   );
 }
