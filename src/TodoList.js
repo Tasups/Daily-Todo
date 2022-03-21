@@ -2,17 +2,17 @@ import React from 'react';
 
 import Todo from './Todo.js';
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ tasks }) => {
   return (
     <React.Fragment>
       {
-        todos.map((todo) => {
+        tasks.map((task) => {
         return(
           <Todo 
-            id={todo.id}
-            todo={todo}
-            key={todo.key}
-            completed={todo.completed}
+            id={task.id}
+            task={task}
+            key={task.key}
+            completed={task.completed}
           />
         )
         })

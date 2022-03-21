@@ -1,9 +1,13 @@
 import React from 'react';
 
-const Todo = ({ todo }) => {
+import './Todo.css';
+
+const Todo = ({ task }) => {
   return (
-    <div>
-      <h3>{todo.name}</h3>
+    <div className="todo-card">
+      <h3>{task.name}</h3>
+      <button className="complete-btn">EDIT</button>
+      <button className="delete-btn">DELETE</button>
     </div>
   )
 }

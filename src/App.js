@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 
 import './App.css';
 
@@ -13,14 +14,19 @@ function App() {
   const [tasks, setTasks] = useState(DATA);
 
   const addTask = (name) => {
-    const newTask = { id: "id", name: name, completed: false }
+    const uniqueIdKey = "task-" + nanoid();
+    const newTask = { id: uniqueIdKey, name: name, completed: false, key: uniqueIdKey }
     setTasks([...tasks, newTask]);
+  }
+  
+  const removeTask = (id) => {
+    setTasks(tasks.filter(!id))
   }
   
   return (
     <div className="App">
-      <TodoInput addTodo={addTask}/>
-      <TodoList todos={tasks} />
+      <TodoInput addTasks={addTask}/>
+      <TodoList tasks={tasks} />
     </div>
   );
 }

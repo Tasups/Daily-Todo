@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const TodoInput = ({ addTodo }) => {
+const TodoInput = ({ addTasks }) => {
   
   const [name, setName] = useState("");
   
@@ -11,7 +11,7 @@ const TodoInput = ({ addTodo }) => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    name.length > 0 && addTodo(name);
+    name.length > 0 && addTasks(name);
     setName("");
   }
   
