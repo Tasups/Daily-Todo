@@ -1,12 +1,18 @@
 import React from 'react';
 
-import Todo from 'Todo.js';
+import Todo from './Todo.js';
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
   return (
-    <>
-      <Todo />
-    </>
+    <React.Fragment>
+      {
+        todos.map((todo) => {
+        return(
+          <Todo todo={todo}/>
+        )
+        })
+      }
+    </React.Fragment>
   )
 }
 
