@@ -3,7 +3,7 @@ import React from 'react';
 const Todo = ({ todo }) => {
   return (
     <div>
-      <h3>{todo}</h3>
+      <h3>{todo.name}</h3>
     </div>
   )
 }

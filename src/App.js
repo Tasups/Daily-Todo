@@ -5,19 +5,22 @@ import './App.css';
 import TodoList from './TodoList.js';
 import TodoInput from './TodoInput';
 
+import DATA from './task_data.js';
+
 
 function App() {
   
-  const [name, setName] = useState('');
+  const [tasks, setTasks] = useState(DATA);
 
-  const addTodo = (name) => {
-    alert(name);
+  const addTask = (name) => {
+    const newTask = { id: "id", name: name, completed: false }
+    setTasks([...tasks, newTask]);
   }
   
   return (
     <div className="App">
-      <TodoInput addTodo={addTodo}/>
-      {/*<TodoList/>*/}
+      <TodoInput addTodo={addTask}/>
+      <TodoList todos={tasks} />
     </div>
   );
 }

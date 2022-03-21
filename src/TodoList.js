@@ -8,7 +8,12 @@ const TodoList = ({ todos }) => {
       {
         todos.map((todo) => {
         return(
-          <Todo todo={todo}/>
+          <Todo 
+            id={todo.id}
+            todo={todo}
+            key={todo.key}
+            completed={todo.completed}
+          />
         )
         })
       }
