@@ -7,22 +7,21 @@
   padding: 1rem;
 }
 
-.complete-btn {
+button {
   min-width: 8rem;
   font-weight: bold;
   padding: 5px;
   margin: 0.5rem;
-  border: solid black 1px;
   border-radius: 3px;
+  cursor: pointer;
+}
+
+.complete-btn {
+  border: solid black 1px;
 }
 
 .delete-btn {
-  min-width: 8rem;
   background-color: #CE1408;
   color: white;
-  font-weight: bold;
-  padding: 5px;
-  margin: 0.5rem;
   border: solid #CE1408 1px;
-  border-radius: 3px;
 }

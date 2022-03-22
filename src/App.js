@@ -12,6 +12,10 @@ import DATA from './task_data.js';
 function App() {
   
   const [tasks, setTasks] = useState(DATA);
+  
+  const toggleTaskCompleted = (id) => {
+    console.log(tasks[0]);
+  }
 
   const addTask = (name) => {
     const uniqueIdKey = "task-" + nanoid();
@@ -19,14 +23,23 @@ function App() {
     setTasks([...tasks, newTask]);
   }
   
-  const removeTask = (id) => {
-    setTasks(tasks.filter(!id))
+  const deleteTask = (id) => {
+    const deleteId = id;
+    const newTasks = tasks.filter(task => task.id !== deleteId);
+    setTasks(newTasks);
   }
   
   return (
     <div className="App">
       <TodoInput addTasks={addTask}/>
-      <TodoList tasks={tasks} />
+      <button>ALL</button>
+      <button>ACTIVE</button>
+      <button>COMPLETED</button>
+      <TodoList 
+        tasks={tasks}
+        toggleTaskCompleted={toggleTaskCompleted}
+        deleteTask={deleteTask}
+      />
     </div>
   );
 }

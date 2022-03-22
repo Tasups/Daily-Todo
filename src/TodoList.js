@@ -2,7 +2,7 @@ import React from 'react';
 
 import Todo from './Todo.js';
 
-const TodoList = ({ tasks }) => {
+const TodoList = ({ tasks, toggleTaskCompleted, deleteTask }) => {
   return (
     <React.Fragment>
       {
@@ -13,6 +13,8 @@ const TodoList = ({ tasks }) => {
             task={task}
             key={task.key}
             completed={task.completed}
+            toggleTaskCompleted={toggleTaskCompleted}
+            deleteTask={deleteTask}
           />
         )
         })
