@@ -12,15 +12,21 @@ import DATA from './task_data.js';
 function App() {
   
   const [tasks, setTasks] = useState(DATA);
-  
-  const toggleTaskCompleted = (id) => {
-    console.log(tasks[0]);
-  }
 
   const addTask = (title, desc) => {
     const uniqueIdKey = "task-" + nanoid();
     const newTask = { id: uniqueIdKey, title: title, desc: desc, completed: false, key: uniqueIdKey }
     setTasks([...tasks, newTask]);
+  }
+  
+  const toggleTaskCompleted = (id) => {
+    const updatedTasks = tasks.map(task => {
+      if (id === task.id) {
+        return { ...task, completed: !task.completed };
+      } return task;
+    })
+    setTasks(updatedTasks);
+    console.log(tasks.completed)
   }
   
   const deleteTask = (id) => {

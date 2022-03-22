@@ -14,10 +14,12 @@
   background-color: black;
   font-weight: bold;
   height: 2rem;
-  width: 16rem;
+  max-width: 16rem;
+  min-width: 8rem;
   margin: 0.5rem;
 }
 
 input, textarea {
   font-size: 1.2rem;
+  width: 100%;
 }

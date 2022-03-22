@@ -8,7 +8,12 @@ const Todo = ({ task, toggleTaskCompleted, deleteTask }) => {
   
   const handleDelete = (id) => {
     deleteTask(task.id);
-  }
+  };
+
+  const handleClick = (id) => {
+    setTaskComplete(!taskComplete);
+    toggleTaskCompleted(id);
+  };
   
   return (
     <div className={`task-card ${taskComplete && "task-completed"}`}>
@@ -16,11 +21,11 @@ const Todo = ({ task, toggleTaskCompleted, deleteTask }) => {
       <p>{task.desc}</p>
       <div style={{textAlign: "center"}}>
         <button className="edit-btn">EDIT</button>
-        <button className="completed-btn" onClick={() => setTaskComplete(!taskComplete)}>COMPLETED</button>
+        <button className="completed-btn" onClick={handleClick}>COMPLETED</button>
         <button className="delete-btn" onClick={handleDelete}>DELETE</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Todo;

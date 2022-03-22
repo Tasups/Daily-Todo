@@ -24,47 +24,46 @@ const TodoInput = ({ addTasks }) => {
   }
   
    return (
-    <form onSubmit={handleSubmit}>
-      <div className="input-div">
-        <label
-        className="input-label"
-        htmlFor="new-todo-title"
-      >
-        Title
-      </label>
-      <input 
-        id="new-todo-title"
-        size={41}
-        type="text"
-        title="text"
-        value={title}
-        autoComplete="off"
-        onChange={handleTitleChange}
-      />
-      </div>
-      <div className="input-div">
-        <label
-        className="input-label"
-        htmlFor="new-todo-desc"
-      >
-        Description
-      </label>
-      <textarea
-        style={{resize: "none"}}
-        cols={40}
-        rows={5}
-        id="new-todo-desc"
-        type="text"
-        desc="text"
-        value={desc}
-        autoComplete="off"
-        onChange={handleDescChange}
-      />
-      </div>
-      <div style={{textAlign: "center"}}>
-      <button className="input-submit" type="submit">ADD</button>
-      </div>
-    </form>
+    <div className="form-container">
+      <form onSubmit={handleSubmit}>
+        <div className="input-div">
+          <label
+          className="input-label"
+          htmlFor="new-todo-title"
+        >
+          Title
+        </label>
+        <input 
+          id="new-todo-title"
+          type="text"
+          title="text"
+          value={title}
+          autoComplete="off"
+          onChange={handleTitleChange}
+        />
+        </div>
+        <div className="input-div">
+          <label
+          className="input-label"
+          htmlFor="new-todo-desc"
+        >
+          Description
+        </label>
+        <textarea
+          style={{resize: "none"}}
+          id="new-todo-desc"
+          type="text"
+          desc="text"
+          value={desc}
+          autoComplete="off"
+          onChange={handleDescChange}
+        />
+        </div>
+        <div style={{textAlign: "center"}}>
+        <button className="input-submit" type="submit">ADD</button>
+        </div>
+      </form>
+    </div>
   )
 }
 
