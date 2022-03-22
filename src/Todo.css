@@ -1,17 +1,18 @@
 .todo-card {
+  text-align: left;
   background-color: #FAFDD7;
-  max-width: 20rem;
+  max-width: 30rem;
   border: black solid 1px;
   border-radius: 5px;
   margin: 3rem auto;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 button {
   min-width: 8rem;
   font-weight: bold;
   padding: 5px;
-  margin: 0.5rem;
+  margin: 1rem 0.5rem;
   border-radius: 3px;
   cursor: pointer;
 }

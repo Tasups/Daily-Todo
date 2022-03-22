@@ -17,9 +17,9 @@ function App() {
     console.log(tasks[0]);
   }
 
-  const addTask = (name) => {
+  const addTask = (title, desc) => {
     const uniqueIdKey = "task-" + nanoid();
-    const newTask = { id: uniqueIdKey, name: name, completed: false, key: uniqueIdKey }
+    const newTask = { id: uniqueIdKey, title: title, desc: desc, completed: false, key: uniqueIdKey }
     setTasks([...tasks, newTask]);
   }
   
@@ -31,10 +31,13 @@ function App() {
   
   return (
     <div className="App">
+      <h1 style={{textAlign: "center"}}>DAILY TASKS</h1>
       <TodoInput addTasks={addTask}/>
+      <div style={{textAlign: "center"}}>
       <button>ALL</button>
       <button>ACTIVE</button>
       <button>COMPLETED</button>
+      </div>
       <TodoList 
         tasks={tasks}
         toggleTaskCompleted={toggleTaskCompleted}
