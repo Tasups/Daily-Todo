@@ -1,4 +1,4 @@
-.todo-card {
+.task-card {
   text-align: left;
   background-color: #FAFDD7;
   max-width: 30rem;
@@ -17,7 +17,7 @@ button {
   cursor: pointer;
 }
 
-.complete-btn {
+.edit-btn {
   border: solid black 1px;
 }
 
@@ -25,4 +25,14 @@ button {
   background-color: #CE1408;
   color: white;
   border: solid #CE1408 1px;
+}
+
+.completed-btn {
+  border: solid black 1px;
+  background-color: #B6C6CE;
+}
+
+.task-completed {
+  background-color: lightgrey;
+  text-decoration: line-through;
 }

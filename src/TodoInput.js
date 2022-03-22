@@ -34,6 +34,7 @@ const TodoInput = ({ addTasks }) => {
       </label>
       <input 
         id="new-todo-title"
+        size={41}
         type="text"
         title="text"
         value={title}
