@@ -19,6 +19,15 @@ function App() {
     setTasks([...tasks, newTask]);
   }
   
+  const editTask = (id, title, desc) => {
+    const updatedTasks = tasks.map(task => {
+      if (id === task.id) {
+        return { ...task, title: title, desc: desc }
+      } return task;
+    })
+    setTasks(updatedTasks);
+  }
+  
   const toggleTaskCompleted = (id) => {
     const updatedTasks = tasks.map(task => {
       if (id === task.id) {
@@ -26,7 +35,6 @@ function App() {
       } return task;
     })
     setTasks(updatedTasks);
-    console.log(tasks.completed)
   }
   
   const deleteTask = (id) => {
@@ -48,6 +56,7 @@ function App() {
         tasks={tasks}
         toggleTaskCompleted={toggleTaskCompleted}
         deleteTask={deleteTask}
+        editTask={editTask}
       />
     </div>
   );
