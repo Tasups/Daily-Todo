@@ -33,20 +33,10 @@ const Todo = ({ task, toggleTaskCompleted, deleteTask, editTask }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     editTask(task.id, newTitle, newDesc);
-    console.log(newTitle, newDesc);
     setNewTitle("");
     setNewDesc("");
     setIsEditing(false);
   }
-  
-  /* EXAMPLE OF handleSubmit
-  const handleSubmit = (e) => {
-  e.preventDefault();
-  props.editTask(props.id, newName);
-  setNewName("");
-  setEditing(false);
-}
-  */
   
   return (
     <div className={`task-card ${taskComplete && "task-completed"}`}>
@@ -76,6 +66,7 @@ const Todo = ({ task, toggleTaskCompleted, deleteTask, editTask }) => {
               value={newTitle}
               autoComplete="off"
               onChange={handleTitleChange}
+              required
             />
             </div>
             <div className="input-div">
@@ -93,10 +84,23 @@ const Todo = ({ task, toggleTaskCompleted, deleteTask, editTask }) => {
               value={newDesc}
               autoComplete="off"
               onChange={handleDescChange}
+              required
             />
             </div>
             <div style={{textAlign: "center"}}>
-            <button className="input-submit" type="submit">SUBMIT</button>
+            <button 
+              className="input-submit" 
+              type="submit"
+            >
+              SUBMIT
+            </button>
+            <button 
+              className="cancel-btn" 
+              type="button" 
+              onClick={() => setIsEditing(false)}
+            >
+              CANCEL
+            </button>
             </div>
           </form>
         </div>
