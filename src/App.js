@@ -4,14 +4,29 @@ import { nanoid } from 'nanoid';
 import './App.css';
 
 import TodoList from './TodoList.js';
-import TodoInput from './TodoInput';
+import TodoInput from './TodoInput.js';
+import FilterButton from './FilterButton.js';
 
 import DATA from './task_data.js';
 
 
+import FILTER_MAP from './filter_data.js';
+
 function App() {
   
   const [tasks, setTasks] = useState(DATA);
+  const [filter, setFilter] = useState('All');
+
+  const FILTER_NAMES = Object.keys(FILTER_MAP);
+
+  const filterList = FILTER_NAMES.map(name => (
+    <FilterButton 
+      key={name} 
+      name={name} 
+      isPressed={name === filter}
+      setFilter={setFilter}
+    />
+    ));
 
   const addTask = (title, desc) => {
     const uniqueIdKey = "task-" + nanoid();
@@ -50,9 +65,12 @@ function App() {
       <h1 style={{textAlign: "center"}}>DAILY TASKS</h1>
       <TodoInput addTasks={addTask}/>
       <div style={{textAlign: "center"}}>
+      {filterList}
+      {/*
       <button>ALL</button>
       <button>ACTIVE</button>
       <button>COMPLETED</button>
+      */}
       </div>
       <TodoList 
         tasks={tasks}
