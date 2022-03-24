@@ -5,16 +5,18 @@ import './App.css';
 
 import TodoList from './TodoList.js';
 import TodoInput from './TodoInput.js';
-import FilterButton from './FilterButton.js';
+// import FilterButton from './FilterButton.js';
 
 import DATA from './task_data.js';
 
 
-import FILTER_MAP from './filter_data.js';
+//import FILTER_MAP from './filter_data.js';
 
 function App() {
   
   const [tasks, setTasks] = useState(DATA);
+  
+  /*
   const [filter, setFilter] = useState('All');
 
   const FILTER_NAMES = Object.keys(FILTER_MAP);
@@ -27,7 +29,8 @@ function App() {
       setFilter={setFilter}
     />
     ));
-
+  */
+  
   const addTask = (title, desc) => {
     const uniqueIdKey = "task-" + nanoid();
     const newTask = { id: uniqueIdKey, title: title, desc: desc, completed: false, key: uniqueIdKey }
@@ -65,7 +68,10 @@ function App() {
       <h1 style={{textAlign: "center"}}>DAILY TASKS</h1>
       <TodoInput addTasks={addTask}/>
       <div style={{textAlign: "center"}}>
+      {/*
+      {filter}
       {filterList}
+      */}
       {/*
       <button>ALL</button>
       <button>ACTIVE</button>
@@ -74,6 +80,7 @@ function App() {
       </div>
       <TodoList 
         tasks={tasks}
+        //filter={filter}
         toggleTaskCompleted={toggleTaskCompleted}
         deleteTask={deleteTask}
         editTask={editTask}
