@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Todo from './Todo.js';
 import FilterButton from './FilterButton.js';
 
+import './TodoList.css';
+
 import FILTER_MAP from './filter_data.js';
 
 
@@ -37,29 +39,11 @@ const TodoList = ({ tasks, toggleTaskCompleted, deleteTask, editTask }) => {
   
   return (
     <React.Fragment>
+      <div className="filter-btn">
+        {filterList}
+      </div>
     
-    {filterList}
-    {taskList}
-    
-    
-    
-    {/*
-      {
-        tasks.map((task) => {
-        return(
-          <Todo 
-            id={task.id}
-            task={task}
-            key={task.key}
-            completed={task.completed}
-            toggleTaskCompleted={toggleTaskCompleted}
-            deleteTask={deleteTask}
-            editTask={editTask}
-          />
-        )
-        })
-      }
-      */}
+      {taskList}
       
     </React.Fragment>
   )

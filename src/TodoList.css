@@ -1,0 +1,9 @@
+.filter-btn {
+  text-align: left;
+  background-color: #DEF1D4;
+  max-width: 30rem;
+  border: black solid 1px;
+  border-radius: 5px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
