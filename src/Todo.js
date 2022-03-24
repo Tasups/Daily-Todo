@@ -5,16 +5,16 @@ import './Todo.css';
 const Todo = ({ task, toggleTaskCompleted, deleteTask, editTask }) => {
   
   const [taskComplete, setTaskComplete] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+  const [newTitle, setNewTitle] = useState("");
+  const [newDesc, setNewDesc] = useState("");
   
   const handleTitleChange = (e) => {
-    setTitle(e.target.value);
+    setNewTitle(e.target.value);
   }
   
   const handleDescChange = (e) => {
-    setDesc(e.target.value);
+    setNewDesc(e.target.value);
   }
   
   const handleDelete = (id) => {
@@ -27,13 +27,26 @@ const Todo = ({ task, toggleTaskCompleted, deleteTask, editTask }) => {
   };
   
   const openEditModal = () => {
-    setIsOpen(true);
+    setIsEditing(true);
   };
-  
-  const handleEdit = (id, title, desc) => {
-    editTask(title, desc);
-    setIsOpen(false);
+ 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    editTask(task.id, newTitle, newDesc);
+    console.log(newTitle, newDesc);
+    setNewTitle("");
+    setNewDesc("");
+    setIsEditing(false);
   }
+  
+  /* EXAMPLE OF handleSubmit
+  const handleSubmit = (e) => {
+  e.preventDefault();
+  props.editTask(props.id, newName);
+  setNewName("");
+  setEditing(false);
+}
+  */
   
   return (
     <div className={`task-card ${taskComplete && "task-completed"}`}>
@@ -44,49 +57,51 @@ const Todo = ({ task, toggleTaskCompleted, deleteTask, editTask }) => {
         <button className="completed-btn" onClick={handleCompletionClick}>COMPLETED</button>
         <button className="delete-btn" onClick={handleDelete}>DELETE</button>
       </div>
+      
       {
-        isOpen && 
+        isEditing && 
         <div>
-          <form onSubmit={handleEdit}>
-        <div className="input-div">
-          <label
-          className="input-label"
-          htmlFor="new-todo-title"
-        >
-          Title
-        </label>
-        <input 
-          id="new-todo-title"
-          type="text"
-          title="text"
-          value={title}
-          autoComplete="off"
-          onChange={handleTitleChange}
-        />
-        </div>
-        <div className="input-div">
-          <label
-          className="input-label"
-          htmlFor="new-todo-desc"
-        >
-          Description
-        </label>
-        <textarea
-          style={{resize: "none"}}
-          id="new-todo-desc"
-          type="text"
-          desc="text"
-          value={desc}
-          autoComplete="off"
-          onChange={handleDescChange}
-        />
-        </div>
-        <div style={{textAlign: "center"}}>
-        <button className="input-submit" type="submit">SUBMIT</button>
-        </div>
-      </form>
+          <form onSubmit={handleSubmit}>
+            <div className="input-div">
+              <label
+              className="input-label"
+              htmlFor="new-todo-title"
+            >
+              Title
+            </label>
+            <input 
+              id="new-todo-title"
+              type="text"
+              title="text"
+              value={newTitle}
+              autoComplete="off"
+              onChange={handleTitleChange}
+            />
+            </div>
+            <div className="input-div">
+              <label
+              className="input-label"
+              htmlFor="new-todo-desc"
+            >
+              Description
+            </label>
+            <textarea
+              style={{resize: "none"}}
+              id="new-todo-desc"
+              type="text"
+              desc="text"
+              value={newDesc}
+              autoComplete="off"
+              onChange={handleDescChange}
+            />
+            </div>
+            <div style={{textAlign: "center"}}>
+            <button className="input-submit" type="submit">SUBMIT</button>
+            </div>
+          </form>
         </div>
       }
+      
     </div>
   );
 };

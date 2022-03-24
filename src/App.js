@@ -19,20 +19,22 @@ function App() {
     setTasks([...tasks, newTask]);
   }
   
-  const editTask = (id, title, desc) => {
-    const updatedTasks = tasks.map(task => {
+  const editTask = (id, newTitle, newDesc) => {
+    const editedTasks = tasks.map(task => {
       if (id === task.id) {
-        return { ...task, title: title, desc: desc }
-      } return task;
+        return { ...task, title: newTitle, desc: newDesc }
+      } 
+      return task;
     })
-    setTasks(updatedTasks);
+    setTasks(editedTasks);
   }
   
   const toggleTaskCompleted = (id) => {
     const updatedTasks = tasks.map(task => {
       if (id === task.id) {
         return { ...task, completed: !task.completed };
-      } return task;
+      } 
+      return task;
     })
     setTasks(updatedTasks);
   }
