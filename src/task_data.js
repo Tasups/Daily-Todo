@@ -66,7 +66,7 @@ const DATA = [
     id: 10,
     key: 10,
     title: "Love your family",
-    desc: "Spend time with your family, kids and wife mainly. Kiss the kidies. Play games with them. Fuck Anna at least a few times a month.",
+    desc: "Spend time with your family, kids and wife mainly. Kiss the kidies. Play games with them. Be sure to have date nights.",
     completed: false
   }
 ];
